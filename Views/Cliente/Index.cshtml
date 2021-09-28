@@ -1,0 +1,75 @@
+@model IEnumerable<WebApp.Models.ClienteViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Clientes";
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Novo</a>
+</p>
+
+<table class="table table-sm ">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.DataNasc)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>Ações</th>            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.DataNasc)</td>
+                <td>@Html.DisplayFor(modelItem => item.CPF)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>            
+                    <a asp-action="Edit" title="Editar" asp-route-id=@item.Id class="btn btn-warning fa fa-pencil-square-o" style="color:#fff"></a>
+                    <a href="#" title="Excluir" class="btn btn-danger fa fa-trash-o" style="color:#fff" onclick="showmodal('@item.Id')"></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+
+@{    
+    var pagina = (int)TempData["ClientePage"]; 
+    if (pagina > 0)
+    {
+        //pagina++;
+    
+        for (int i = 1; i <= pagina; i++)
+        {
+            <a asp-action="Index" class="btn btn-primary" asp-route-page=@i>@i</a>
+        }
+    }   
+}
+
+<div class="modal fade" id="MyModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="modal-body">
+                <h5>Você tem certeza que deseja excluir este Cliente?</h5>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" onclick="DeleteClient()">Excluir</button>
+                <button class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

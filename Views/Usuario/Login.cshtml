@@ -1,0 +1,59 @@
+
+@model WebApp.Models.LoginViewModel
+
+
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eSales - Entrar</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/login.css" />
+</head>
+</head>
+    <body>   
+        <div class="cont">
+            <h2>Entrar</h2>
+            <form asp-action="Login">
+                
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+                <div class="inputbox">
+                    <input asp-for="UsernameOrEmail" type="text" required="required">
+                    <label>Usuário ou E-mail</label>
+                    <span asp-validation-for="UsernameOrEmail" class="text-danger"></span>
+                </div>
+                <div class="inputbox">
+                    <input asp-for="Password" type="password" required="required">
+                    <label>Senha</label>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <a asp-action="EsqueciSenha" >Esqueci minha senha</a>
+                </div>
+                <div class="inputbox">
+                    <input type="submit" value="Entrar" class="btn btn-primary">
+                
+                </div>
+                <hr/>
+                <div class="form-group text-center">
+                    Ainda não tem uma conta? <a asp-action="NovaConta" >Cadastre-se</a>
+                    
+                </div>
+            </form>
+        </div>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </body>
+</html>

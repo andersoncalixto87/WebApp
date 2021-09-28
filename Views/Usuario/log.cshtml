@@ -1,0 +1,41 @@
+@model WebApp.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Entrar ou Cadastre-se no eSales";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Login" class="col-md-4 form-shadow" style="margin:0 auto">
+            <div class="form-group">
+              <h2>Entrar</h2>
+                
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="UsernameOrEmail" class="control-label"></label>
+                <input asp-for="UsernameOrEmail" class="form-control" placeholder="Usuário ou E-mail" />
+                <span asp-validation-for="UsernameOrEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" placeholder="Senha" type="password"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              <a asp-action="EsqueciSenha" >Esqueci minha senha</a>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Acessar minha conta" class="btn btn-primary btn-block"  />
+                
+            </div>
+            
+            <hr/>
+            <div class="form-group text-center">
+              Ainda não tem uma conta? <a asp-action="NovaConta" >Cadastre-se</a>
+                
+            </div>
+        </form>
+    </div>
+</div>

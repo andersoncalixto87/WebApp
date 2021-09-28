@@ -1,0 +1,36 @@
+@model WebApp.Models.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard - eSales";
+}
+<h1>Dashboard</h1>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card" >
+            <div class="card-body text-center">
+                <h2 class="card-title">@Model.QtdClientes</h2>
+                <h6 class="card-subtitle mb-2 text-muted">Quantidade de Clientes</h6>
+                
+               
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card" >
+            <div class="card-body text-center ">
+                <h2 class="card-title ">@Model.QtdProdutos</h2>
+                <h6 class="card-subtitle mb-2 text-muted ">Quantidade de Produtos</h6>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card" >
+            <div class="card-body text-center">
+                <h2 class="card-title">@Model.QtdVendas</h2>
+                <h6 class="card-subtitle mb-2 text-muted">Quantidade de Vendas</h6>
+                
+            </div>
+        </div>
+    </div>
+</div>

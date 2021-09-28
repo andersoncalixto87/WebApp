@@ -1,0 +1,58 @@
+@model WebApp.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "eSales - Cadastre-se";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Register" class="col-md-4 form-shadow" style="margin:0 auto">
+            <div class="form-group">
+              <h2>Cadastrar</h2>
+                
+            </div>
+            @if((string)TempData["Referrer"] == "SaveRegister")
+            {
+                <div id="SaveRegister" class="alert alert-success">
+                    <strong>Você se registrou com sucesso!</strong>
+                </div>
+                <a asp-action="Login" >Voltar para tela de login(<span id="number"></span>)</a>
+                
+            }
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" placeholder="Nome" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" placeholder="E-mail" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" placeholder="Usuário" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" placeholder="Senha" type="password"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirmar Senha" type="password"/>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary btn-block"  />
+                
+            </div>
+            
+            
+        </form>
+    </div>
+</div>

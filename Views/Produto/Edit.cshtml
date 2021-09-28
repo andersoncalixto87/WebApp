@@ -1,0 +1,38 @@
+@model WebApp.Models.ProdutoViewModel
+
+@{
+    ViewData["Title"] = "Cadastro de Produtos";
+}
+
+<h2>Cadastro de Produto</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label asp-for="Descricao" class="control-label"></label>
+                        <input asp-for="Descricao" class="form-control" />
+                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label asp-for="Valor" class="control-label"></label>
+                        <input asp-for="Valor" class="form-control" />
+                        <span asp-validation-for="Valor" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Atualizar" class="btn btn-success" />
+                <a class="btn btn-danger" asp-action="Index">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
